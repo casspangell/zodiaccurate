@@ -1,7 +1,7 @@
 // Email Handling Script
 function onFormSubmit(e) {
   var sheet = getSpreadsheet(mainSheetId, "Main"); // Access the Main Google Sheet
-  
+
   if (sheet) {
     // Grab latest response
     var responseRow = sheet.getLastRow();
