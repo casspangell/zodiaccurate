@@ -1,0 +1,31 @@
+name: Deploy to Google Apps Script
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action only on pushes to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v2
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify Node.js version
+
+      # Install clasp globally
+      - run: npm install -g @google/clasp
+
+      # Authenticate clasp (You would need to provide your Google credentials here)
+      - name: Authenticate clasp
+        run: clasp login --creds "<your-credentials-json>"
+
+      # Push the project to Google Apps Script
+      - name: Deploy to Google Apps Script
+        run: clasp push
