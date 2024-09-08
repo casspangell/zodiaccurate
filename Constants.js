@@ -8,4 +8,6 @@ var privateSheetId = '1UWD9zil5GMXvx84PlgQxl6BybI4mQ2ni0UUwnEcg4aQ'; // Second (
 var formId = '1klvUzXkeMnSZ9Nz_Cb8_x3WCRsuyRNPKIgECFi83OXI'; // Google Form ID
 
 //Stripe
-  var stripeLink = "https://billing.stripe.com/p/login/8wM03Y1ic3ROau4000";
+var stripeLink = "https://billing.stripe.com/p/login/8wM03Y1ic3ROau4000";
+
+var firebase_BaseURL = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/";

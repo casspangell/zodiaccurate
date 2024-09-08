@@ -2,7 +2,7 @@
 // SAVE single entry to Firebase
 //
 function saveEntryToFirebase(jsonData, uuid) {
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/responses/" + uuid + ".json";
+    var firebaseUrl = firebase_BaseURL+"responses/" + uuid + ".json";
 
     var options = {
         "method": "put", 
@@ -19,7 +19,7 @@ function saveEntryToFirebase(jsonData, uuid) {
 //
 function saveToFirebaseEmailCapture(jsonData, email) {
     var uuid = sanitizeEmail(email);
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/emailcapture/" + uuid + ".json";
+    var firebaseUrl = firebase_BaseURL+"emailcapture/" + uuid + ".json";
 
     var options = {
         "method": "put", 
@@ -34,7 +34,7 @@ function saveToFirebaseEmailCapture(jsonData, email) {
 // GET single user from Firebase
 //
 function getUserDataFromFirebase(uuid) {
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/responses/" + uuid + ".json";
+    var firebaseUrl = firebase_BaseURL+"responses/" + uuid + ".json";
     var options = {
         "method": "get",
         "headers": {
@@ -67,7 +67,7 @@ function getUserDataFromFirebase(uuid) {
 // GET last entry from Firebase
 //
 function getLastEntryFromFirebase() {
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/responses.json";
+    var firebaseUrl = firebase_BaseURL+"responses.json";
     var options = {
         "method": "get",
         "headers": {
@@ -114,7 +114,7 @@ function getPreviousDayFromFirebase(uuid) {
     var today = new Date();
     var dayOfWeek = daysOfWeek[today.getDay()-1]; //previous day
 
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/zodiac/" + uuid + "/" + dayOfWeek + ".json";
+    var firebaseUrl = firebase_BaseURL+"zodiac/" + uuid + "/" + dayOfWeek + ".json";
     var options = {
         "method": "get",
         "headers": {
@@ -165,7 +165,7 @@ function saveDayToFirebase(jsonData, uuid) {
     var dayOfWeek = daysOfWeek[today.getDay()];
     console.log("FU-Saving "+dayOfWeek);
 
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/zodiac/" + uuid + "/" + dayOfWeek + ".json";
+    var firebaseUrl = firebase_BaseURL+"zodiac/" + uuid + "/" + dayOfWeek + ".json";
 
     var options = {
         "method": "PATCH", 
@@ -184,7 +184,7 @@ function saveDayToFirebase(jsonData, uuid) {
 function getThreeDaysDataFromFirebase(uuid) {
     // uuid = "2_ABaOnudHJDNujgsYR5qZauZ8YyqNuNquPv0Zp4pbNguVavEEZxU2iXyEXdbu0XmZDOkNsII";
     console.log("FB- getThreeDaysDataFromFirebase uuid "+ uuid);
-    var firebaseUrl = "https://zodiaccurate-e9aaf-default-rtdb.firebaseio.com/zodiac/" + uuid + ".json";
+    var firebaseUrl = firebase_BaseURL+"zodiac/" + uuid + ".json";
 
     var options = {
         "method": "GET",  // Use GET to retrieve the data
